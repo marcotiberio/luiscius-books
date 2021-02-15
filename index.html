@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Luiscius Books</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+  
+
+  <div id="app">
+
+    <div class="file-upload" id="capture">
+      <!-- <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add
+        Image</button> -->
+  
+      <div class="image-upload-wrap">
+        <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+        <div class="drag-text">
+          <h3>Drag and drop a file or select add Image</h3>
+        </div>
+      </div>
+      <div class="file-upload-content">
+        <img class="file-upload-image" src="#" alt="your image" />
+        <div class="image-title-wrap">
+          <button type="button" onclick="removeImage()" class="remove-image">Remove <span class="image-title">Image</span></button>
+        </div>
+      </div>
+    </div>
+
+    <button 
+            @click="saveCanvas()">
+            Save Image
+    </button>
+
+  </div>
+  
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="script.js"></script>
+  <script src="html2canvas.min.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!'
+      },
+      methods: {
+        saveCanvas(){
+          html2canvas(document.querySelector("#capture")).then(
+            canvas => {
+              // document.body.appendChild(canvas)
+            var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+            console.log(image);
+            window.location.href=image
+          });
+        }
+      }
+    })
+  </script>
+
+<script>
+  $(document).ready(function () {
+
+
+    var element = $(".file-upload"); // global variable
+    var getCanvas; // global variable
+
+    $("#btn-Preview-Image").on('click', function () {
+      html2canvas(element, {
+        onrendered: function (canvas) {
+          $("#previewImage").append(canvas);
+          getCanvas = canvas;
+        }
+      });
+    });
+
+    $("#btn-Convert-Html2Image").on('click', function () {
+      var imgageData = getCanvas.toDataURL("image/png");
+      // Now browser starts downloading it instead of just showing it
+      var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+      $("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
+    });
+
+  });
+</script>
+
+<script>
+  
+</script>
+
+
+
+</body>
+
+</html>
