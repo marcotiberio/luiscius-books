@@ -1,8 +1,12 @@
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
 #app {
-    width: 100vw;
+    width: calc(100vw - 10px);
     height: calc(100vh - 10px);
     font-family: sans-serif;
-    background-color: #eeeeee;
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 20px;
@@ -11,8 +15,8 @@
   
   .file-upload {
     background-color: #cacaca;
-    width: 80vh;
-    height: 80vh;
+    width: 70vh;
+    height: 70vh;
     margin: 0;
     padding: 100px;
     display: grid;
@@ -51,8 +55,8 @@
     text-align: left;
     max-width: fit-content;
     max-height: fit-content;
-    -webkit-box-shadow: 15px 15px 15px 6px #A5A5A5; 
-    box-shadow: 15px 15px 15px 6px #A5A5A5;
+    /* -webkit-box-shadow: 15px 15px 15px 6px #A5A5A5; 
+    box-shadow: 15px 15px 15px 6px #A5A5A5; */
     /* padding: 0 20px 20px 0;
     background-color: rgba(165, 165, 165, 0.6); */
   }
@@ -88,8 +92,7 @@
     position: fixed;
     right: 0;
     bottom: 0;
-    padding: 0 15px 15px 15px;
-    color: #222;
+    padding: 0 10px 10px 10px;
   }
   
   .drag-text {
@@ -105,23 +108,19 @@
   }
   
   .file-upload-image {
-    max-height: 700px;
-    max-width: 700px;
+    max-height: 550px;
+    max-width: 550px;
     margin: auto;
     padding: 0;
-    -webkit-box-shadow: 15px 15px 15px 6px #A5A5A5; 
-    box-shadow: 15px 15px 15px 6px #A5A5A5;
   }
   
   .remove-image {
     width: 200px;
     margin: 0;
     color: #fff;
-    background: #cd4535;
+    background: #000000;
     border: none;
     padding: 10px;
-    border-radius: 4px;
-    border-bottom: 4px solid #b02818;
     transition: all .2s ease;
     outline: none;
     text-transform: uppercase;
@@ -137,5 +136,89 @@
   
   .remove-image:active {
     border: 0;
+    transition: all .2s ease;
+  }
+
+  .right {
+    display: grid;
+    place-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+  }
+
+  .right button {
+    height: fit-content;
+    width: fit-content;
+    transition: all .2s ease;
+  }
+
+  .right button:hover {
+    background: #c13b2a;
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+  }
+
+  .right #saveImage {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    width: 200px;
+    height: 100px;
+    margin: 0;
+    color: #ffffff;
+    background: #000000;
+    border: none;
+    padding: 10px;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .right #saveImage:hover {
+    background: #c13b2a;
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+  }
+
+  .buttons-shadow {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .buttons-shadow > button{
+    height: 50px;
+    width: 200px;
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    color: #000000;
+    background: #EDDA62;
+    border: none;
+    padding: 10px;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .shadow1 {
+    -webkit-box-shadow: 7.5px 7.5px 7.5px 3px #A5A5A5; 
+    box-shadow: 7.5px 7.5px 7.5px 3px #A5A5A5;
+    transition: all .2s ease;
+  }
+
+  .shadow2 {
+    -webkit-box-shadow: 15px 15px 15px 6px #A5A5A5; 
+    box-shadow: 15px 15px 15px 6px #A5A5A5;
+    transition: all .2s ease;
+  }
+
+  .shadow3 {
+    -webkit-box-shadow: 30px 30px 30px 12px #A5A5A5; 
+    box-shadow: 30px 30px 30px 12px #A5A5A5;
     transition: all .2s ease;
   }
