@@ -16,6 +16,12 @@
 
   <div id="app">
 
+    <div class="buttons-shadow">
+      <button id="buttonShadow1">Small Shadow</button>
+      <button id="buttonShadow2">Medium Shadow</button>
+      <button id="buttonShadow3">Big Shadow</button>
+    </div>
+
     <div class="file-upload" id="capture">
       <!-- <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add
         Image</button> -->
@@ -27,7 +33,12 @@
         </div>
       </div>
       <div class="file-upload-content">
-        <img class="file-upload-image" src="#" alt="your image" />
+          <img class="file-upload-image" id="scream" src="#" alt="your image" />
+        <!-- <div id="composition">
+          <div id="imageGrid">
+            <img class="file-upload-image" src="#" alt="your image" />
+          </div>
+        </div> -->
         <div class="image-title-wrap">
           <button type="button" onclick="removeImage()" class="remove-image">Remove <span class="image-title">Image</span></button>
         </div>
@@ -36,14 +47,7 @@
 
     <div class="right">
       <button id="saveImage" @click="saveCanvas()">Save<br>Image</button>
-
-      <div class="buttons-shadow">
-        <button id="buttonShadow1">Small Shadow</button>
-        <button id="buttonShadow2">Medium Shadow</button>
-        <button id="buttonShadow3">Big Shadow</button>
-      </div>
     </div>
-
   </div>
   
 
@@ -70,38 +74,6 @@
       }
     })
   </script>
-
-<script>
-  $(document).ready(function () {
-
-
-    var element = $(".file-upload"); // global variable
-    var getCanvas; // global variable
-
-    $("#btn-Preview-Image").on('click', function () {
-      html2canvas(element, {
-        onrendered: function (canvas) {
-          $("#previewImage").append(canvas);
-          getCanvas = canvas;
-        }
-      });
-    });
-
-    $("#btn-Convert-Html2Image").on('click', function () {
-      var imgageData = getCanvas.toDataURL("image/png");
-      // Now browser starts downloading it instead of just showing it
-      var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-      $("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
-    });
-
-  });
-</script>
-
-<script>
-  
-</script>
-
-
 
 </body>
 
