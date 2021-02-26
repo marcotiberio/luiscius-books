@@ -39,15 +39,24 @@ $(function() {
     $('.file-upload-image').addClass("shadow1");
     $('.file-upload-image').removeClass("shadow2");
     $('.file-upload-image').removeClass("shadow3");
+    $('.file-upload-content').addClass("shadow1");
+    $('.file-upload-content').removeClass("shadow2");
+    $('.file-upload-content').removeClass("shadow3");
   });
   $("#buttonShadow2").click(function() {  
     $('.file-upload-image').removeClass("shadow1");
     $('.file-upload-image').addClass("shadow2");
     $('.file-upload-image').removeClass("shadow3");
+    $('.file-upload-content').removeClass("shadow1");
+    $('.file-upload-content').addClass("shadow2");
+    $('.file-upload-content').removeClass("shadow3");
   });
   $("#buttonShadow3").click(function() {  
     $('.file-upload-image').removeClass("shadow1");
     $('.file-upload-image').removeClass("shadow2");
     $('.file-upload-image').addClass("shadow3");
+    $('.file-upload-content').removeClass("shadow1");
+    $('.file-upload-content').removeClass("shadow2");
+    $('.file-upload-content').addClass("shadow3");
   });
 });
